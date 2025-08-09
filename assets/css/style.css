@@ -53,6 +53,7 @@ header .header-icons i:hover {
 }
 header ul .dropdown-element {
   position: relative;
+  cursor: pointer;
 }
 header ul .dropdown-element:hover .dropdown {
   visibility: visible;
@@ -60,8 +61,8 @@ header ul .dropdown-element:hover .dropdown {
 header .dropdown {
   min-width: 150px;
   visibility: hidden;
-  top: 90px;
-  left: -20px;
+  top: 100%; /* parent li-nin altına tam bitişsin */
+  left: 0;
   position: absolute;
   padding: 20px 16px;
   background: white;
@@ -153,12 +154,21 @@ header .navbar > li .status {
     left: 20px;
     background: white;
     z-index: 100;
-    padding: 20px
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  header nav ul{
+  header nav.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  header nav ul {
     flex-direction: column;
   }
-  header .navbar > li{
+  header .navbar > li {
     padding: 10px 0px;
   }
   header .toggle {
@@ -174,31 +184,45 @@ header .navbar > li .status {
     color: var(--red-500);
     background: transparent;
   }
-  header .navbar > li .status{
+  header .navbar > li .status {
     display: none;
   }
+  /* Mobil üçün dropdown animasiya ilə */
   header .dropdown {
+    max-height: 0;
+    overflow: hidden;
+    visibility: visible;
     top: 0px;
     left: 0px;
     position: relative;
-    padding: 20px 16px;
     background: white;
     border-top: none;
     border-radius: none;
-    height: 0px;
-    padding: 0px;
+    padding: 0 16px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
   }
-  header ul .dropdown-element i{
+  header .dropdown-element.open .dropdown {
+    max-height: 500px;
+    padding: 10px 16px;
+  }
+  header ul .dropdown-element i {
     position: absolute;
     right: 0px;
     top: 0px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #141517;
+    transition: color 0.3s ease;
   }
-  header ul .dropdown-element:hover .dropdown {
-    visibility: visible;
-    height: auto;
-    padding: 20px 20px 0px;
+  header ul .dropdown-element i:hover {
+    color: var(--red-500);
   }
   header .dropdown::before {
+    display: none;
+  }
+}
+@media screen and (min-width: 901px) {
+  header ul .dropdown-element i {
     display: none;
   }
 }

@@ -7,6 +7,7 @@
     <script
       src="https://kit.fontawesome.com/74884debd8.js"
       crossorigin="anonymous"
+      defer
     ></script>
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/components.css" />
@@ -16,7 +17,7 @@
     <header>
       <div class="head-inner">
         <div class="logo">
-          <img src="./assets/images/logo/logo.png" />
+          <img src="./assets/images/logo/logo.png" alt="Logo" />
         </div>
         <nav>
           <ul class="navbar">
@@ -24,8 +25,9 @@
             <li><a href="#">Shop</a></li>
             <li><a href="#">About</a></li>
             <li class="dropdown-element">
-              Latest
-              <span class="status">Hot</span>
+              <span class="dropdown-title">
+                Latest <span class="status">Hot</span>
+              </span>
               <ul class="dropdown">
                 <li><a href="#">Product List</a></li>
                 <li><a href="#">Product Details</a></li>
@@ -33,7 +35,7 @@
               <i class="fa-solid fa-plus"></i>
             </li>
             <li class="dropdown-element">
-              Blog
+              <span class="dropdown-title">Blog</span>
               <ul class="dropdown">
                 <li><a href="#">Product List</a></li>
                 <li><a href="#">Product Details</a></li>
@@ -41,7 +43,7 @@
               <i class="fa-solid fa-plus"></i>
             </li>
             <li class="dropdown-element">
-              Pages
+              <span class="dropdown-title">Pages</span>
               <ul class="dropdown">
                 <li><a href="#">Product List</a></li>
                 <li><a href="#">Product Details</a></li>
@@ -57,12 +59,13 @@
             <i class="fa-regular fa-user"></i>
             <i class="fa-solid fa-cart-shopping"></i>
           </div>
-          <button class="toggle">
+          <button class="toggle" aria-label="Toggle menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
       </div>
     </header>
+
     <section class="banner">
       <div class="container banner-row">
         <div class="banner-text">
@@ -76,5 +79,8 @@
         <img alt="Watch" src="./assets/images/banner/watch.png" />
       </div>
     </section>
+
+    <!-- JS kodu -->
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>
